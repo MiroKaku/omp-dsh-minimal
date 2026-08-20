@@ -30,10 +30,15 @@ sequenceDiagram
 | Bootstrap (request #1) | bash, str_replace_editor | You are a helpful software engineer assistant. |
 | Promoted (after first reply/tool call) | Pi's full active tool set | official one-liner + remaining Pi prompt |
 
+Bootstrap also filters omp's eager todo/task preludes out of request #1 (their
+tools are outside the two-tool catalog) and re-injects them once promoted: omp
+builds those preludes only for the first user message, so dropping them without
+deferral would erase the todo/task guidance for the whole session.
+
 ## Install
 
 ```sh
-omp plugin install git:https://github.com/kanren3/omp-dsh-minimal.git
+omp plugin install git:https://github.com/MiroKaku/omp-dsh-minimal.git
 ```
 
 The plugin declares **no** `peerDependencies`: `@oh-my-pi/*` imports are
