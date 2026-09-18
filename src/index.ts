@@ -4,6 +4,7 @@ import { readDshMinimalConfig } from "./adapter/config.ts";
 import { partitionBootstrapPreludes } from "./adapter/context-filter.ts";
 import { extractRequestSurface, rewriteProviderRequest } from "./adapter/payload-rewrite.ts";
 import { reanchorPersona } from "./adapter/prompt.ts";
+import { stripPlaceholderReasoningLines } from "./adapter/reasoning-cleanup.ts";
 import { isAdapterPromoted, resyncSessionState, type AdapterState } from "./adapter/state.ts";
 import { MINIMAL_PROMPT } from "./dsh/official.ts";
 import { registerDshCommand } from "./settings/command.ts";
@@ -118,6 +119,7 @@ pi.on("session_switch", async (_event, ctx) => {
 		const promoted = isAdapterPromoted(state);
 		const persona = promoted ? reanchorPersona(assembled) : MINIMAL_PROMPT;
 		const rewritten = rewriteProviderRequest(event.payload, { persona, rewriteTools: !promoted });
+		stripPlaceholderReasoningLines(rewritten);
 
 		return rewritten;
 	});
