@@ -46,6 +46,7 @@ test("isAdapterActive is true only when enabled and matching", () => {
 	const config = { ...DEFAULT_DSH_MINIMAL_CONFIG };
 	assert.equal(isAdapterActive(ctx("deepseek-v4-pro", "DeepSeek V4 Pro (New)"), config), true);
 	assert.equal(isAdapterActive(ctx("deepseek-v4-flash"), config), true);
+	assert.equal(isAdapterActive(ctx("deepseek-flash", "Deepseek Flash"), config), true);
 	assert.equal(isAdapterActive(ctx("gpt-5.6-luna"), config), false);
 	assert.equal(isAdapterActive(ctx("deepseek-v4-pro"), { ...config, enabled: false }), false);
 	assert.equal(isAdapterActive(ctx("my-ds-pro"), { ...config, modelPatterns: ["my-ds-pro"] }), true);

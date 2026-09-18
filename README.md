@@ -1,6 +1,6 @@
 # omp-dsh-minimal
 
-This is the Minimal **DeepSeek Harness** anchored-standard adapter for **Oh My Pi**. On a DeepSeek V4 session, Request #1 exposes only the official two-tool catalog (`bash` and `str_replace_editor`) along with the official one-line persona. The first subsequent assistant reply or tool call then restores the session to Pi's full tool set and re-anchors the prompt.
+This is the Minimal **DeepSeek Harness** anchored-standard adapter for **Oh My Pi**. On a DeepSeek session, Request #1 exposes only the official two-tool catalog (`bash` and `str_replace_editor`) along with the official one-line persona. The first subsequent assistant reply or tool call then restores the session to Pi's full tool set and re-anchors the prompt.
 
 ## Request lifecycle
 
@@ -74,7 +74,7 @@ On `/resume`, promotion state is rebuilt from the persisted session entries.
 ```json
 {
   "enabled": true,
-  "modelPatterns": ["deepseek-v4-pro", "deepseek-v4-flash"]
+  "modelPatterns": ["deepseek"]
 }
 ```
 

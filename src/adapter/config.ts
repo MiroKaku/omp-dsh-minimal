@@ -9,7 +9,7 @@ export interface DshMinimalConfig {
 
 export const DSH_MINIMAL_CONFIG_BASENAME = "omp-dsh-minimal.json";
 
-export const DEFAULT_MODEL_PATTERNS = ["deepseek-v4-pro", "deepseek-v4-flash"];
+export const DEFAULT_MODEL_PATTERNS = ["deepseek"];
 
 export const DEFAULT_DSH_MINIMAL_CONFIG: DshMinimalConfig = {
 	enabled: true,
